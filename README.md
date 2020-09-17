@@ -1,2 +1,3 @@
 # Virtual-Economy
-A  virtual economy written in go. 
+
+A virtual economy written in go. 
