@@ -1,3 +1,3 @@
-module virtual-economy/v2
+module economy
 
 go 1.13

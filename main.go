@@ -1,6 +1,8 @@
 package main
 
-import "mutate"
+import (
+	"economy/utils/mutate"
+)
 
 func main() {
 	mutate.Setup()
