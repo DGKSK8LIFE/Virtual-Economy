@@ -1,7 +1,8 @@
 package db
 
 import (
-	"log"
+	"context"
+	"time"
 
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
@@ -10,8 +11,15 @@ import (
 var Client *mongo.Client
 
 func Open() {
-	Client, err := mongo.NewClient(options.Client().ApplyURI("mongodb://localhost:27017"))
+	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
+	defer cancel()
+	Client, err := mongo.Connect(ctx, options.Client().ApplyURI("mongodb://localhost:27017"))
 	if err != nil {
-		log.Fatalf("can't connect to db: %s\n", err)
+		panic(err)
 	}
+	defer func() {
+		if err = client.Disconnect(ctx); err != nil {
+			panic(err)
+		}
+	}()
 }
