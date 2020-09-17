@@ -1,10 +1,10 @@
 # Virtual-Economy
 
-A virtual economy written in go. 
+A virtual economy written in go.
 
-## Tech Stack 
+## Tech Stack
 
-- Go 
+- Go
 - MongoDB
 
 ## Features
