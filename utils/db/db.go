@@ -8,8 +8,10 @@ import (
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
+// Client of the db
 var Client *mongo.Client
 
+// Open opens mongodb/establishes connection
 func Open() {
 	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
 	defer cancel()
