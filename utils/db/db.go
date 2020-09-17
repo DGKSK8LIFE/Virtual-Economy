@@ -18,12 +18,12 @@ func Open() {
 	if err != nil {
 		panic(err)
 	}
-	err = client.Ping(ctx, readpref.Primary())
+	err = Client.Ping(ctx, readpref.Primary())
 	if err != nil {
 		panic(err)
 	}
 	defer func() {
-		if err = client.Disconnect(ctx); err != nil {
+		if err = Client.Disconnect(ctx); err != nil {
 			panic(err)
 		}
 	}()
