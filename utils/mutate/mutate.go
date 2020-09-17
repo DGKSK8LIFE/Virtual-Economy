@@ -19,6 +19,6 @@ func mutate() {
 		// Artificial inflation; will probably make it temporary
 		Pool++
 		fmt.Println(Pool)
-		time.Sleep(1000)
+		time.Sleep(1000 * time.Millisecond)
 	}
 }
