@@ -1,6 +1,9 @@
 package mutate
 
-import "time"
+import (
+	"fmt"
+	"time"
+)
 
 // Pool is the amount of money that is available globally
 var Pool int64
@@ -15,6 +18,7 @@ func mutate() {
 	for {
 		// Artificial inflation; will probably make it temporary
 		Pool++
+		fmt.Println(Pool)
 		time.Sleep(1000)
 	}
 }
