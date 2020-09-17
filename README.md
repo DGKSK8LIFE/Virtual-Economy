@@ -6,3 +6,9 @@ A virtual economy written in go.
 
 - Go 
 - MongoDB
+
+## Features
+
+1. Artificial Inflation
+2. UBI
+3. (eventual) Loans/deferred payment
