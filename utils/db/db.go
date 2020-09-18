@@ -4,6 +4,7 @@ import (
 	"context"
 	"time"
 
+	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
@@ -27,6 +28,13 @@ func Open() {
 }
 
 // CreateToken creates an individual token (currency of the virtual-economy)
-func CreateToken() {
-		
+func CreateToken() error {
+	collection := Client.Database("economy").Collection("tokens")
+	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
+	defer cancel()
+	_, err := collection.InsertOne(ctx, bson.M{})
+	if err != nil {
+		return err
+	}
+	return nil
 }
