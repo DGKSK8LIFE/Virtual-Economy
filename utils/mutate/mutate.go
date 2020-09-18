@@ -2,6 +2,7 @@ package mutate
 
 import (
 	"economy/utils/db"
+	"fmt"
 	"time"
 )
 
@@ -13,6 +14,11 @@ func Mutate() {
 		if err != nil {
 			panic(err)
 		}
+		result, err := db.AllTokens()
+		if err != nil {
+			panic(err)
+		}
+		fmt.Println(result)
 		time.Sleep(1000 * time.Millisecond)
 	}
 }
