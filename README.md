@@ -12,3 +12,7 @@ A virtual economy written in go.
 1. Artificial Inflation
 2. UBI
 3. (eventual) Loans/deferred payment
+
+## How to run the app
+
+Run `./run.sh`
