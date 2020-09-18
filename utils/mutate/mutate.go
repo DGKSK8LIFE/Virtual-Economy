@@ -1,24 +1,18 @@
 package mutate
 
 import (
-	"fmt"
+	"economy/utils/db"
 	"time"
 )
 
-// Pool is the amount of money that is available globally
-var Pool int64
-
-// Setup starts the economy
-func Setup() {
-	Pool = 0
-	mutate()
-}
-
-func mutate() {
+// Mutates the economy
+func Mutate() {
 	for {
 		// Artificial inflation; will probably make it temporary
-		Pool++
-		fmt.Println(Pool)
+		err := db.CreateToken()
+		if err != nil {
+			panic(err)
+		}
 		time.Sleep(1000 * time.Millisecond)
 	}
 }
