@@ -44,6 +44,7 @@ func CreateToken() error {
 	return nil
 }
 
+// AllTokens Returns all the tokens in the document
 func AllTokens() error {
 	ctx, cancel := context.WithTimeout(context.Background(), 30*time.Second)
 	defer cancel()
