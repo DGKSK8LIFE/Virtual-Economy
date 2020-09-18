@@ -45,22 +45,23 @@ func CreateToken() error {
 }
 
 // AllTokens Returns all the tokens in the document
-func AllTokens() error {
+func AllTokens() (bson.M, error) {
+	var Result bson.M
 	ctx, cancel := context.WithTimeout(context.Background(), 30*time.Second)
 	defer cancel()
 	cur, err := collection.Find(ctx, bson.D{})
 	if err != nil {
-		return err
+		return nil, err
 	}
 	defer cur.Close(ctx)
 	for cur.Next(ctx) {
-		var result bson.M
-		err := cur.Decode(&result)
+		err := cur.Decode(&Result)
 		if err != nil {
-			return err
+			return nil, err
 		}
 	}
 	if err := cur.Err(); err != nil {
-		return err
+		return nil, err
 	}
+	return Result, nil
 }
