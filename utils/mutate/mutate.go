@@ -5,7 +5,7 @@ import (
 	"time"
 )
 
-// Mutates the economy
+// Mutate mutates the economy
 func Mutate() {
 	for {
 		// Artificial inflation; will probably make it temporary
