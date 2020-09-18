@@ -25,3 +25,8 @@ func Open() {
 		}
 	}()
 }
+
+// CreateToken creates an individual token (currency of the virtual-economy)
+func CreateToken() {
+	
+}
