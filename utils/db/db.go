@@ -2,6 +2,7 @@ package db
 
 import (
 	"context"
+	"log"
 	"time"
 
 	"github.com/pborman/uuid"
@@ -22,12 +23,12 @@ func Open() {
 	defer cancel()
 	Client, err := mongo.Connect(ctx, options.Client().ApplyURI("mongodb://localhost:27017"))
 	if err != nil {
-		panic(err)
+		log.Fatal(err)
 	}
 	collection = Client.Database("economy").Collection("tokens")
 	defer func() {
 		if err = Client.Disconnect(ctx); err != nil {
-			panic(err)
+			log.Fatal(err)
 		}
 	}()
 }
