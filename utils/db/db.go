@@ -4,6 +4,7 @@ import (
 	"context"
 	"time"
 
+	"github.com/pborman/uuid"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
@@ -29,10 +30,11 @@ func Open() {
 
 // CreateToken creates an individual token (currency of the virtual-economy)
 func CreateToken() error {
+	identifier := uuid.New()
 	collection := Client.Database("economy").Collection("tokens")
 	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
 	defer cancel()
-	_, err := collection.InsertOne(ctx, bson.M{})
+	_, err := collection.InsertOne(ctx, bson.M{"tokenid": identifier})
 	if err != nil {
 		return err
 	}
