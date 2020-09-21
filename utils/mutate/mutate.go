@@ -26,7 +26,7 @@ func Mutate() {
 		}
 		log.Printf("	Token: %s\n", result["tokenid"])
 		if i%5 == 0 {
-			fmt.Printf("Total Tokens in circulation: %d\n", count)
+			fmt.Printf("			Total Tokens in circulation: %d\n", count)
 		}
 		time.Sleep(1000 * time.Millisecond)
 	}
