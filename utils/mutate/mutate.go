@@ -8,6 +8,7 @@ import (
 
 // Mutate mutates the economy
 func Mutate() {
+	fmt.Println("Creating tokens:")
 	for {
 		// Artificial inflation; will probably make it temporary
 		err := db.CreateToken()
@@ -18,7 +19,7 @@ func Mutate() {
 		if err != nil {
 			panic(err)
 		}
-		fmt.Println(result)
+		fmt.Printf("Token: %s\n", result["tokenid"])
 		time.Sleep(1000 * time.Millisecond)
 	}
 }
