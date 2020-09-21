@@ -19,7 +19,7 @@ func Mutate() {
 		if err != nil {
 			panic(err)
 		}
-		fmt.Printf("Token: %s\n", result["tokenid"])
+		fmt.Printf("	Token: %s\n", result["tokenid"])
 		time.Sleep(1000 * time.Millisecond)
 	}
 }
