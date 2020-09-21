@@ -16,3 +16,5 @@ A virtual economy written in go.
 ## How to run the app
 
 Run `./run.sh`
+
+## [Learning resources I used to build the project](resources.txt)
