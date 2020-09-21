@@ -42,7 +42,7 @@ func CreateToken() error {
 
 // AllTokens Returns all the tokens in the document
 func AllTokens() (bson.M, error) {
-	var Result bson.M
+	var result bson.M
 	ctx, cancel := context.WithTimeout(context.Background(), 30*time.Second)
 	defer cancel()
 	cur, err := collection.Find(ctx, bson.D{})
@@ -51,7 +51,7 @@ func AllTokens() (bson.M, error) {
 	}
 	defer cur.Close(ctx)
 	for cur.Next(ctx) {
-		err := cur.Decode(&Result)
+		err := cur.Decode(&result)
 		if err != nil {
 			return nil, err
 		}
@@ -59,5 +59,10 @@ func AllTokens() (bson.M, error) {
 	if err := cur.Err(); err != nil {
 		return nil, err
 	}
-	return Result, nil
+	return result, nil
+}
+
+// TokenCount returns the number of tokens in circulation
+func TokenCount() {
+
 }
