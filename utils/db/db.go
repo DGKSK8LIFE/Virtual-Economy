@@ -26,11 +26,6 @@ func Open() {
 		log.Fatal(err)
 	}
 	collection = Client.Database("economy").Collection("tokens")
-	defer func() {
-		if err = Client.Disconnect(ctx); err != nil {
-			log.Fatal(err)
-		}
-	}()
 }
 
 // CreateToken creates an individual token (currency of the virtual-economy)
