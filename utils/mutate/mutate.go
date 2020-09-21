@@ -20,7 +20,12 @@ func Mutate() {
 		if err != nil {
 			panic(err)
 		}
+		count, err := db.TokenCount()
+		if err != nil {
+			panic(err)
+		}
 		log.Printf("	Token: %s\n", result["tokenid"])
+		fmt.Printf("Total Tokens in circulation: %d\n", count)
 		time.Sleep(1000 * time.Millisecond)
 	}
 }
