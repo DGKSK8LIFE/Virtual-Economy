@@ -3,6 +3,7 @@ package mutate
 import (
 	"economy/utils/db"
 	"fmt"
+	"log"
 	"time"
 )
 
@@ -19,7 +20,7 @@ func Mutate() {
 		if err != nil {
 			panic(err)
 		}
-		fmt.Printf("	Token: %s\n", result["tokenid"])
+		log.Printf("	Token: %s\n", result["tokenid"])
 		time.Sleep(1000 * time.Millisecond)
 	}
 }
