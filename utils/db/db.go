@@ -63,24 +63,12 @@ func AllTokens() (bson.M, error) {
 }
 
 // TokenCount returns the number of tokens in circulation
-func TokenCount() (bson.M, error) {
-	var result bson.M
+func TokenCount() (int64, error) {
 	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
 	defer cancel()
 	cur, err := collection.CountDocuments(ctx, bson.M{})
 	if err != nil {
-		return nil, err
+		return 0, err
 	}
-	defer cur.Close(ctx)
-	for cur.Next(ctx) {
-		err := cur.Decode(&result)
-		if err != nil {
-			return nil, err
-		}
-	}
-	if err := cur.Err(); err != nil {
-		return nil, err
-	}
-	return result, nil
-
+	return cur, nil
 }
