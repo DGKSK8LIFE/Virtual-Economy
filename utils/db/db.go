@@ -72,3 +72,7 @@ func TokenCount() (int64, error) {
 	}
 	return cur, nil
 }
+
+// CreateDocument creates a new document for a user (basically a wallet)
+func CreateDocument() {
+}
