@@ -10,8 +10,13 @@ A virtual economy written in go.
 ## Features
 
 1. Artificial Inflation
-2. UBI
-3. (eventual) Loans/deferred payment
+2. Reserves/exchange creation
+
+## To be implemented
+
+1. Full replication of monetarism/macroeconomic system
+2. Exchange
+3. APIs
 
 ## How to run the app
 
