@@ -10,6 +10,7 @@ import (
 // Mutate mutates the economy
 func Mutate() {
 	fmt.Println("Creating tokens:")
+	db.CreateDocument()
 	for i := 1; true; i++ {
 		// Artificial inflation; will probably make it temporary
 		err := db.CreateToken()

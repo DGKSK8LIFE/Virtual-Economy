@@ -76,5 +76,5 @@ func TokenCount() (int64, error) {
 // CreateDocument creates a new document for a user (basically a wallet)
 func CreateDocument() {
 	docUUID := uuid.New()
-	Client.Database(docUUID).Collection(docUUID)
+	Client.Database("economy").Collection(docUUID)
 }
